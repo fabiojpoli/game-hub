@@ -1,7 +1,7 @@
 import useGenres from '../hooks/useGenres';
 
 const GenreList = () => {
-   const { genres, error, isLoading } = useGenres();
+   const { data, error, isLoading } = useGenres();
 
    return (
       <ul>
@@ -9,7 +9,7 @@ const GenreList = () => {
          {error && <li>Error: {error}</li>}
          {!isLoading &&
             !error &&
-            genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
+            data.map((genre) => <li key={genre.id}>{genre.name}</li>)}
       </ul>
    );
 };
